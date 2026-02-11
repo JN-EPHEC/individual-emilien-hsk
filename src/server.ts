@@ -1,7 +1,10 @@
 import express, { Request, Response } from 'express'; // Importation d'express et des types [cite: 76, 85]
+import userRoutes from './routes/userRoutes';
 
 const app = express(); // Initialisation [cite: 75]
 const port = 3000; // Définition du port [cite: 77]
+
+app.use('/api', userRoutes);
 
 // Route GET sur la racine avec typage explicite
 app.get('/', (req: Request, res: Response) => {
