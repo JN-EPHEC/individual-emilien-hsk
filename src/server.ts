@@ -52,3 +52,19 @@ const etudiants: Etudiant[] = [
 app.get('/api/data', (req: Request, res: Response) => {
     res.json(etudiants); // Utilisation de res.json() comme demandé au point 6.1
 });
+
+
+// Route avec paramètre dynamique :name
+app.get('/api/hello/:name', (req: Request, res: Response) => {
+    // On récupère le nom depuis l'URL
+    const name = req.params.name; 
+    
+    // On récupère la date et l'heure actuelle au format ISO
+    const now = new Date().toISOString();
+
+    // On renvoie la réponse au format JSON comme demandé
+    res.json({
+        message: `Bonjour ${name}`,
+        timestamp: now
+    });
+});
